@@ -10,7 +10,7 @@ public class SummarizeImages {
 
 	public static void main(String[] args) {
 		String file = null;
-		String feature = "cedd";
+		String feature = "gist";
 		String outfile = null;
 		String datafile = null;
 		String contextfile = null;
@@ -49,7 +49,10 @@ public class SummarizeImages {
 			System.out.println("outfile = " + outfile);
 		}
 		try {
-			Class featureClass = CEDD.class;
+			Class featureClass = Gist.class;
+			if (feature.startsWith("cedd")) {
+				featureClass = CEDD.class;
+			}
 			if (feature.startsWith("tamura")) {
 				featureClass = Tamura.class;
 			} else if (feature.startsWith("fcth")) {
