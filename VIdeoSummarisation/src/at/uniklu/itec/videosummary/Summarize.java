@@ -19,6 +19,7 @@ import java.awt.image.Kernel;
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.lang.management.GarbageCollectorMXBean;
 import java.math.MathContext;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -195,6 +196,12 @@ public class Summarize {
 		Imgproc.Sobel(img, dy, CvType.CV_32F, 0,1);
 		Core.magnitude(dx, dy, dx);
 		Scalar sum = Core.sumElems(dx);
+		img.release();
+		dx.release();
+		dy.release();
+		System.gc();
+		System.gc();
+		System.gc();
 		//System.out.println("Sum of gradients= "+sum);
 		return (sum.val[0]);
 	}
