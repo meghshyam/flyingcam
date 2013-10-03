@@ -62,7 +62,7 @@ public class SummarizeImages {
 			} else if (feature.startsWith("gabor")) {
 				featureClass = Gabor.class;
 			} else if (feature.startsWith("colorhist")) {
-				featureClass = SimpleColorHistogram.class;
+				featureClass = SpatialColorHistogram.class;
 			}
 			System.out.println("Starting a new summarization using feature " + featureClass.getName());
 			new Summarize(file, datafile, contextfile, featureClass, outfile, numClusters);
