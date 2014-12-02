@@ -166,13 +166,13 @@ public class Summarize {
 					int median = cluster.median;
 					File file = usedFiles.get(median);
 					usedFiles2.add(file);
-					Point3D pt = navInfo.get(median);
+					Point3D pt = navInfo.get(median+257);
 					ptFeatures2.add(pt);
 				}
 				Cluster[] clusters2 = findFrames(NUM_CLUSTERS, ptFeatures2, false);
 				File outdir = new File(outfile);
 				outdir.mkdir();
-				System.loadLibrary("opencv_java246");
+				System.loadLibrary("opencv_java249");
 				
 				for(Cluster cluster: clusters2){
 					ArrayList<Integer> temp = new ArrayList<Integer>(cluster.members);
@@ -198,7 +198,7 @@ public class Summarize {
 				Cluster[] clusters = findFrames(NUM_CLUSTERS, ceddFeatures, ptFeatures);
 				File outdir = new File(outfile);
 				outdir.mkdir();
-				System.loadLibrary("opencv_java246");
+				System.loadLibrary("opencv_java249");
 				for(Cluster cluster: clusters){
 					ArrayList<Integer> temp = new ArrayList<Integer>(cluster.members);
 					double maxSharpness = 0;
