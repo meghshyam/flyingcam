@@ -49,7 +49,7 @@ public class SummarizeImages {
 			System.out.println("outfile = " + outfile);
 		}
 		try {
-			Class featureClass = Gist.class;
+			Class featureClass = SpatialColorHistogram.class;
 			if (feature.startsWith("cedd")) {
 				featureClass = CEDD.class;
 			}
